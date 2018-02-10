@@ -5,7 +5,7 @@
 
   <h1>CMU Course Aide</h1>
   <div>
-  <p1>Use this program to design your future schedules at CMU. </p1>
+  <p1> </p1>
   </div>
 
 </body>
