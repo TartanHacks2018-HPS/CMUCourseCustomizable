@@ -1,4 +1,5 @@
 import os
+from flask import Flask,g
 import ast
 from jinja2 import Environment, FileSystemLoader
 
@@ -8,15 +9,17 @@ TEMPLATE_ENVIRONMENT = Environment(
     loader=FileSystemLoader(os.path.join(PATH, 'templates')),
     trim_blocks=False)
 
+app = Flask("flaskr")
+app.config.update(dict(DEBUG=True))
 
 def render_template(template_filename, context):
     return TEMPLATE_ENVIRONMENT.get_template(template_filename).render(context)
 
-
+@app.route('/',methods=["Course"])
 def create_index_html():
     inputfile = open("master_data.txt","r")
     master = ast.literal_eval(inputfile.readline())
-    course = master.get("21-228")
+    course = master.get("21-222")
 
 
     #num = str(76101)
@@ -32,16 +35,9 @@ def create_index_html():
 
     context = {"info":[course]}
     #
-    fname = "render_template.html"
-    with open(fname, 'w') as f:
-        html = render_template('template.html', context)
-        f.write(html)
+    #fname = "render_template.html"
 
 
-def main():
-    create_index_html()
+    return render_template('template.html', context)
 
 ########################################
-
-if __name__ == "__main__":
-    main()
