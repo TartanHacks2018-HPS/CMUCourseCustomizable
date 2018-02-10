@@ -10,4 +10,5 @@ def save_data(newfile,text):
     inputfile.close()
     return None
 
+get_course_data("F")
 #fall = get_course_data('F')
