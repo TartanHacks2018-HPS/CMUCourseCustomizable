@@ -8,18 +8,32 @@ def findfirst(lst, key):
             return idx
     return -1
 
+def clear(string,left,right):
+    #convert string to list
+    strlist = []
+    for i in range(0,len(string)):
+        strlist.append(string[i:i+1])
+    #while string contains a '<'
+    while findfirst(strlist,left) != -1:
+        #find first instance of left post
+        idleft = findfirst(strlist,left)
+        idright = findfirst(strlist,right)
+        strlist = strlist[0:idleft] + strlist[idright+1:]
+    text = ''
+    for letter in strlist:
+        text = text + letter
+    return text
+
 def clean(reqs):
     if reqs != None:
-        for idx in range(0,len(reqs)):
-            char = reqs[idx:idx+1]
-            if char == ' ' or char == 'a' or char == 'n' or char == 'o':
-                char = ''
-                reqs = reqs[0:idx] + char + reqs[idx+1:]
-                idx -= 1
-            else:
-                if char == 'd' or char == 'r':
-                    char = ','
-                reqs = reqs[0:idx] + char + reqs[idx+1:]
+        reqs = clear(reqs,'o','r')
+        reqs = clear(reqs,'a','d')
+        reqs = clear(reqs,'(','(')
+        reqs = clear(reqs,')',')')
+        for i in range(0,len(reqs)-2):
+            if reqs[i:i+2]=='  ':
+                reqs = reqs[0:i] + ',' + reqs[i+2:]
+        reqs = '[' + reqs + ']'
     return reqs
 
 def get_data():
