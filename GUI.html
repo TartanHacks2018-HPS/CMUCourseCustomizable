@@ -20,8 +20,9 @@
 
         <div align="center"><div class="sphere red">
           <ul>
-            {% for n in my_list %}
-            <li>{{n}}</li>
+            {% for entry in info -%}
+            <li>{{entry}}</li>
+            {% endfor -%}
           </ul>
             </div></div>
 
