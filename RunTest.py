@@ -34,7 +34,7 @@ def create_index_html():
     #
     fname = "render_template.html"
     with open(fname, 'w') as f:
-        html = render_template('template.html', context)
+        html = render_template('GUI.html', context)
         f.write(html)
 
 
