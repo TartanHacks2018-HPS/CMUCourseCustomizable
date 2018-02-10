@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CMU Course Network</title>
+        <meta name="description" content="An interactive network of classes.">
+        <link rel="stylesheet" href="GUI.css">
+    </head>
+    <body>
+
+        <header>
+        <div.absolute><img src="2704668_mktg_logo.png" style="width:100px;height:100px"></div.absolute>
+        <h1>CMU Courses Network</h1>
+        </header>
+
+        <map name="workmap">
+
+        </map>
+
+
+
+        <div align="center"><div class="sphere red">
+          <ol align="left">
+          {% set counter = 0 -%}
+          {% for entry in info -%}
+          <li>{{ entry }}</li>
+          {% set counter = counter + 1 -%}
+          {% endfor -%}
+          </ol>
+            </div></div>
+
+        <!-- <div class="sphere green"></div>
+       <div class="sphere blue"></div>
+        <div class="sphere yellow"></div>
+        <div class="sphere"></div>-->
+
+    </body>
+</html>
