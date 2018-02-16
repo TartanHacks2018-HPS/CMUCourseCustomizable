@@ -30,6 +30,7 @@ def clean(reqs):
         reqs = clear(reqs,'a','d')
         reqs = clear(reqs,'(','(')
         reqs = clear(reqs,')',')')
+        reqs = clear(reqs,'-','-')
         for i in range(0,len(reqs)-2):
             if reqs[i:i+2]=='  ':
                 reqs = reqs[0:i] + ',' + reqs[i+2:]
@@ -48,6 +49,7 @@ def get_data():
         keys = item.keys()
         for key in keys:
             course = item.get(key)
+            key = clear(key,'-','-')
             course['prereqs'] = clean(course.get('prereqs'))
             course['coreqs'] = clean(course.get('coreqs'))
             course.pop('prereqs_obj')

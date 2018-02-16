@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CMU Course Network</title>
+        <meta name="description" content="An interactive network of classes.">
+        <link rel="stylesheet" href="GUI.css">
+    </head>
+    <body>
+
+        <div.absolute><img src="https://web2.qatar.cmu.edu/iliano/projects/nexcel/inc/img/cmu-dog.jpg" style="width:100px;height:100px"></div.absolute>
+
+        <div align="center"><h1>CMU Courses Network</h1></div>
+
+        <div align="center">
+          <ul style="list-style:none;line-height:1.5">
+            {% for item in info -%}
+            {% for key, value in item.items() -%}
+              {% if (key=="Prereqs") and (value!=None) -%}
+                {{key}} :
+                {% for entry in value -%}
+                  <li><a href="http://127.0.0.1:5000/{{entry}}">{{entry}}</a></li>
+                {% endfor -%}
+              {% elif (key=="Postreqs") and (value!=None) -%}
+                {{key}} :
+                {% for entry in value -%}
+                  <li><a href="http://127.0.0.1:5000/{{entry}}">{{entry}}</a></li>
+                {% endfor -%}
+              {% elif (key=="Coreqs") and (value!=None) -%}
+                {{key}} :
+                {% for entry in value -%}
+                  <li><a href="http://127.0.0.1:5000/{{entry}}">{{entry}}</a></li>
+                {% endfor -%}
+              {% else-%}
+                <li>{{key}} : {{value}}</li>
+              {% endif -%}
+            {% endfor -%}
+            {% endfor -%}
+          </ul>
+        </div>
+
+
+    </body>
+</html>
