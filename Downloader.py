@@ -33,8 +33,8 @@ def clean(reqs):
         reqs = clear(reqs,'-','-')
         for i in range(0,len(reqs)-2):
             if reqs[i:i+2]=='  ':
-                reqs = reqs[0:i] + ',' + reqs[i+2:]
-        reqs = '[' + reqs + ']'
+                reqs = reqs[0:i] + '\',\'' + reqs[i+2:]
+        reqs = '[' + '\'' + reqs + '\'' +  ']'
     return reqs
 
 def get_data():
